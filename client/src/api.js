@@ -1,6 +1,8 @@
 import axios from "axios";
 
-const BASE_URL = import.meta.env.VITE_API_URL || "https://promtcue-2.onrender.com";
+const BASE_URL =
+  import.meta.env.VITE_API_URL || "https://promtcue-2.onrender.com/api";
+
 const api = axios.create({ baseURL: BASE_URL });
 
 export const uploadAudioChunk = async (sessionId, blob) => {
