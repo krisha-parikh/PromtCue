@@ -43,3 +43,7 @@ async def favicon():
 @app.get("/")
 def root():
     return {"status": "ok"}
+
+@app.get("/")
+def root():
+    return {"message": "API is running"}
