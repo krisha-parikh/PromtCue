@@ -25,7 +25,7 @@ app.add_middleware(
     CORSMiddleware,
     allow_origins=[
         "http://localhost:5173",
-        "https://incredible-mochi-6de56f.netlify.app/"
+        "https://incredible-mochi-6de56f.netlify.app"
     ],
     allow_credentials=True,
     allow_methods=["*"],
