@@ -23,7 +23,7 @@ allowed_origins = [o.strip() for o in _raw_origins.split(",")]
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # 🔥 TEMP: allow all for deployment
+    allow_origins=["*"],  # ✅ allow all (for now)
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
