@@ -23,7 +23,10 @@ allowed_origins = [o.strip() for o in _raw_origins.split(",")]
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # ✅ allow all (for now)
+    allow_origins=[
+        "http://localhost:5173",
+        "https://incredible-mochi-6de56f.netlify.app/"
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
