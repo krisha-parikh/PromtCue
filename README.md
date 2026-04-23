@@ -1,3 +1,5 @@
+Link = https://incredible-mochi-6de56f.netlify.app/
+
 TwinMind(PrompCue) — Real Time AI Meeting Copilot
 PromptCue is a full-stack meeting copilot built for the TwinMind take-home assignment. It listens to live microphone audio, transcribes speech in chunks, generates three context-aware live suggestions, and supports a follow-up chat panel for detailed answers. The frontend is built with React and Vite, while the backend exposes FastAPI endpoints for transcription, suggestion generation, chat, settings, and session export.
 
