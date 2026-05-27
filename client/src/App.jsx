@@ -215,7 +215,7 @@ function App() {
       actions.setIsSendingChat(true);
       actions.setError("");
 
-      actions.setChatMessages((prev) => [
+      actions.setChatMessages((pwinrev) => [
         ...prev,
         {
           id: crypto.randomUUID(),
@@ -338,7 +338,7 @@ function App() {
   return (
     <div className="app-shell">
       <header className="app-header">
-        <h1>TwinMnd — Real Time AI Meeting Copilot</h1>
+        <h1>PromptCue — Real Time AI Meeting Copilot</h1>
       </header>
 
       {state.error && <div className="error-banner">{state.error}</div>}
