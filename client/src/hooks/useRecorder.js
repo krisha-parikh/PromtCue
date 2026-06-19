@@ -1,6 +1,6 @@
 import { useRef } from "react";
 
-export default function useRecorder({ onChunkReady, chunkMs = 30000 }) {
+export default function useRecorder({ onChunkReady, chunkMs = 10000 }) {
   const mediaRecorderRef = useRef(null);
   const streamRef = useRef(null);
   const chunksRef = useRef([]);
