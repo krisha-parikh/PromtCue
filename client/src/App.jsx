@@ -338,8 +338,7 @@ function App() {
   return (
     <div className="app-shell">
       <header className="app-header">
-        <h1>PromptCue</h1>
-        <span className="masthead-tag">Real-time meeting copilot</span>
+        <h1>PromptCue - Real-time meeting copilot</h1>
       </header>
 
       {state.error && <div className="error-banner">{state.error}</div>}
