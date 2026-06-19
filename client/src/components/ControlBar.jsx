@@ -40,7 +40,7 @@ function ControlBar({
   const statusText = !apiKey
     ? "Enter your Groq API key in Settings to begin."
     : isRecording
-      ? "Recording live... transcript appends every 30s."
+      ? "Recording live... transcript appends every 10s."
       : isTranscribing
         ? "Transcribing latest chunk..."
         : "Click mic to start.";
