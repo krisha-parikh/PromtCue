@@ -48,15 +48,16 @@ function TranscriptPanel({
 
   return (
     <section className="panel">
-      <div className="panel-header">
-        <div className="panel-step">1. MIC & TRANSCRIPT</div>
+     <div className="panel-header">
+        <div className={`panel-step ${isRecording ? "is-live" : ""}`}>
+          Transcript
+        </div>
         <div className="panel-status">{statusLabel}</div>
       </div>
 
       <div className="panel-body">
         <div className="info-box">
-          The transcript scrolls and appends new chunks every ~10 seconds while
-          recording.
+          Appends a new transcript chunk every ~10 seconds while recording.
         </div>
 
         <div
