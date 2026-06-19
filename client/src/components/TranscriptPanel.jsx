@@ -55,7 +55,7 @@ function TranscriptPanel({
 
       <div className="panel-body">
         <div className="info-box">
-          The transcript scrolls and appends new chunks every ~30 seconds while
+          The transcript scrolls and appends new chunks every ~10 seconds while
           recording.
         </div>
 
