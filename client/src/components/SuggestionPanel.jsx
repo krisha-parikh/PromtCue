@@ -48,16 +48,15 @@ function SuggestionsPanel({
   return (
     <section className="panel">
       <div className="panel-header">
-        <div className="panel-step">2. LIVE SUGGESTIONS</div>
+        <div className="panel-step">Suggestions</div>
         <div className="panel-status">
-          {suggestionBatches.length} BATCHES
+          {suggestionBatches.length} batches
         </div>
       </div>
 
       <div className="panel-body">
         <div className="info-box">
-          On reload or auto-refresh, generate 3 fresh suggestions from recent
-          transcript context.
+          Generates 3 fresh suggestions from recent transcript context on reload or auto-refresh.
         </div>
 
         {/* 🔔 New Suggestions Badge */}
@@ -130,6 +129,7 @@ function SuggestionsPanel({
                     <button
                       key={item.id || `${batchIndex}-${index}`}
                       className="suggestion-card"
+                      data-type={(item.type || "").toLowerCase()}
                       onClick={() => onExpandSuggestion(item)}
                       type="button"
                     >
