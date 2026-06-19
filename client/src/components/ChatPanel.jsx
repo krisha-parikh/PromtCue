@@ -43,15 +43,15 @@ function ChatPanel({
   return (
     <section className="panel chat-panel">
       <div className="panel-header">
-        <div className="panel-step">3. CHAT (DETAILED ANSWERS)</div>
-        <div className="panel-status">SESSION-ONLY</div>
+        <div className="panel-step">Chat</div>
+        <div className="panel-status">Session-only</div>
       </div>
 
       <div className="panel-body">
         <div className="info-box">
-          Clicking a suggestion adds it to this chat and returns a detailed answer.
+          Clicking a suggestion adds it here and returns a detailed answer. You can also ask your own follow-up.
         </div>
-
+        
         <div className="chat-body">
           <div
             className="chat-messages"
@@ -71,7 +71,9 @@ function ChatPanel({
                     key={msg.id || idx}
                     className={`chat-bubble ${msg.role}`}
                   >
-                    <div className="chat-role">{msg.role}</div>
+                    <div className="chat-role">
+                      [{msg.role === "assistant" ? "copilot" : "you"}]
+                    </div>
 
                     {msg.role === "assistant" ? (
                       <div className="markdown-content">
@@ -94,7 +96,7 @@ function ChatPanel({
                 {/* Loading / pending */}
                 {isSendingChat && (
                   <div className="chat-bubble assistant pending">
-                    <div className="chat-role">assistant</div>
+                    <div className="chat-role">[copilot]</div>
                     <div className="pending-label">Thinking...</div>
                     <div className="skeleton-line w-85" />
                     <div className="skeleton-line w-100" />
