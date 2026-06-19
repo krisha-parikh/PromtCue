@@ -97,7 +97,7 @@ function App() {
 
   const recorder = useRecorder({
     onChunkReady: handleChunkReady,
-    chunkMs: 30000,
+    chunkMs: 10000,
   });
 
   const handleToggleRecording = async () => {
