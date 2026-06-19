@@ -1,3 +1,15 @@
+import { useEffect, useRef, useState } from "react";
+
+function formatElapsed(seconds) {
+  const m = Math.floor(seconds / 60)
+    .toString()
+    .padStart(2, "0");
+  const s = Math.floor(seconds % 60)
+    .toString()
+    .padStart(2, "0");
+  return `${m}:${s}`;
+}
+
 function ControlBar({
   apiKey,
   isRecording,
@@ -9,10 +21,26 @@ function ControlBar({
   onOpenSettings,
   onClearSession,
 }) {
+  const [elapsed, setElapsed] = useState(0);
+  const intervalRef = useRef(null);
+
+  useEffect(() => {
+    if (isRecording) {
+      intervalRef.current = setInterval(() => {
+        setElapsed((prev) => prev + 1);
+      }, 1000);
+    } else {
+      clearInterval(intervalRef.current);
+      setElapsed(0);
+    }
+
+    return () => clearInterval(intervalRef.current);
+  }, [isRecording]);
+
   const statusText = !apiKey
     ? "Enter your Groq API key in Settings to begin."
     : isRecording
-      ? "Recording live... Transcript appends every 30s."
+      ? "Recording live... transcript appends every 30s."
       : isTranscribing
         ? "Transcribing latest chunk..."
         : "Click mic to start.";
@@ -29,6 +57,19 @@ function ControlBar({
           {isRecording ? "■" : "🎤"}
         </button>
 
+        <div className="transport-readout">
+          <div className={`level-meter ${isRecording ? "is-live" : ""}`} aria-hidden="true">
+            <span className="bar" />
+            <span className="bar" />
+            <span className="bar" />
+            <span className="bar" />
+            <span className="bar" />
+          </div>
+          <span className={`tape-counter ${isRecording ? "is-live" : ""}`}>
+            {formatElapsed(elapsed)}
+          </span>
+        </div>
+
         <button
           className="panel-btn secondary"
           onClick={onClearSession}
@@ -38,7 +79,7 @@ function ControlBar({
         </button>
 
         <div className="mic-status-block">
-          <div className="section-label">MIC / TRANSCRIPT</div>
+          <div className="section-label">Mic / transcript</div>
           <div className="section-subtext">{statusText}</div>
         </div>
       </div>
