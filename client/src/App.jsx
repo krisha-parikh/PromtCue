@@ -215,7 +215,7 @@ function App() {
       actions.setIsSendingChat(true);
       actions.setError("");
 
-      actions.setChatMessages((pwinrev) => [
+      actions.setChatMessages((prev) => [
         ...prev,
         {
           id: crypto.randomUUID(),
